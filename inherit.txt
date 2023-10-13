@@ -1,0 +1,4 @@
+One use is code reuseability, we dont have to keep copying the same code over and over again. 
+We can just extend whatver class is needed and reuse the attributes and methods  
+
+Another use is to override the attributes and methods aswell as it allows you to do polymorphism 
