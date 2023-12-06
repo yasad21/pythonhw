@@ -1,16 +1,18 @@
-def merged_list(list1, list2):
-    if not (isinstance(list1, list) and isinstance(list2, list)):
-        raise TypeError("Both inputs must be lists.")
-
-    if any(not isinstance(item, int) for item in list1) or any(not isinstance(item, int) for item in list2):
-        raise TypeError("Lists must only contain integers.")
-    merged_list = list1 + list2
-    n = len(merged_list)
-    for i in range(n):
-        min_index = i
-        for j in range(i + 1, n):
-            if merged_list[min_index] > merged_list[j]:
-                min_index = j
-        temp = merged_list[i]
-        merged_list[i] = merged_list[min_index]
-        merged_list[min_index] = temp
+def merge_list(l1, l2):
+    if(not isinstance(l1,list) or not isinstance(l2,list)):
+        raise TypeError("inputs should be lists")
+    
+    l1.extend(l2)
+    
+    for i in range(len(l1)):
+        for j in range(i,0,-1):
+            if(not isinstance(l1[j],int)):
+                raise TypeError("all vals must be ints")
+            if (l1[j] < l1[j-1]):
+                temp = l1[j]
+                l1[j] = l1[j-1]
+                l1[j-1] = temp
+            else:
+                break
+                
+    return l1
