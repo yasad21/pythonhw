@@ -1,5 +1,8 @@
-def reverse_sort_dictionary(dictionary):
-    sorted_items = sorted(input_dict.items(), key=lambda item: item[0], reverse=True)
-    result_list = [(name, data[0]) for name, data in sorted_items]
-
-    return result_list
+def reverse_sort_dictionary(dict):
+    key = list(dict.keys())
+    key.sort()
+    ans = []
+    for i in range (len(key)-1,-1,-1):
+        ans.append((key[i],dict[key[i]][0]))
+        
+    return ans
