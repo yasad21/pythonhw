@@ -1,13 +1,12 @@
 def my_steps(n):
-    if (n<1 or n> 25):
-        raise ValueError("Input must be between 1 and 25")
+        
+        if(n<1 or n>25):
+            raise ValueError()
+        dp = {}
+        dp[1] = 1
+        dp[2] = 2
 
-    if n <= 2:
-        return n
-    else:
-        a, b = 1, 2
-        for I in range(3, n + 1):
-            a, b = b, a + b
-        return b
-
-
+        for i in range(3,n+1):
+            dp[i] = dp[i-1] + dp [i-2]
+    
+        return dp[n]
